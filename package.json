@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "notify": "curl -X POST https://zhaoliang.space/api/vercel-webhook -H \"Content-Type: application/json\" -d '{\"deployment\":{\"id\":\"manual\",\"url\":\"https://zhaoliang.space\",\"name\":\"zhaoliang-portfolio\",\"state\":\"READY\",\"created\":'\"$(date +%s)\"'}}"
   },
   "dependencies": {
     "@base-ui/react": "^1.2.0",
