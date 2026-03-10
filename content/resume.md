@@ -1,7 +1,7 @@
 ---
 name: 赵梁
 title: 大前端技术负责人 · 27人团队管理
-email: zhaoliang.js@gmail.com
+email: mr.zhao.liang@qq.com
 phone: "18610384127"
 location: 北京
 
@@ -106,5 +106,5 @@ techStack:
 
 ## 联系方式
 
-- 📧 邮箱: zhaoliang.js@gmail.com
+- 📧 邮箱: mr.zhao.liang@qq.com
 - 📱 电话: 18610384127
