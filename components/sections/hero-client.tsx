@@ -71,7 +71,7 @@ export function HeroClient({ resume }: HeroClientProps) {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <a
-            href="/简历.pdf"
+            href="/赵梁简历-18610384127-大前端.pdf"
             download
             className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8 group"
           >
