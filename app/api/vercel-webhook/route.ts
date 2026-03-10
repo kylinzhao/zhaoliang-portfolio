@@ -12,9 +12,9 @@ interface VercelDeployment {
   id: string;
   url: string;
   name: string;
-  state: "READY" | "ERROR" | "BUILDING" | "QUEUED";
+  state: "READY" | "ERROR" | "BUILDING" | "QUEUED" | "SUCCESS";
   created: number;
-  creator: { username: string };
+  creator?: { username: string };
 }
 
 export async function POST(request: NextRequest) {
