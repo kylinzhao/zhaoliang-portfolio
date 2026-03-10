@@ -1,0 +1,13 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://zhaoliang.space/sitemap.xml
+
+# Crawl-delay (optional, for politeness)
+# Crawl-delay: 1
+
+# Disallow specific paths if needed
+# Disallow: /api/
+# Disallow: /_next/
