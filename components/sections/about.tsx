@@ -1,6 +1,13 @@
 import { SectionWrapper } from "@/components/section-wrapper";
+import { getResumeData } from "@/lib/resume";
 
-export function About() {
+export async function About() {
+  const resume = await getResumeData();
+
+  // Extract the "个人简介" section from the markdown content
+  const aboutMatch = resume.content.match(/## 个人简介\n\n([\s\S]+?)(?=\n##|$)/);
+  const aboutText = aboutMatch ? aboutMatch[1].trim() : resume.content.trim();
+
   return (
     <SectionWrapper id="about">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -8,8 +15,7 @@ export function About() {
           关于我
         </h2>
         <p className="text-lg sm:text-xl leading-relaxed text-muted-foreground text-center max-w-3xl mx-auto">
-          资深前端技术专家，拥有10年+开发经验。擅长跨端架构（RN/H5/Native同构）、
-          SSR/SEO、工程化体系建设。27人团队管理经验，具备极强的业务敏锐度和技术决策能力。
+          {aboutText}
         </p>
       </div>
     </SectionWrapper>
