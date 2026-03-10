@@ -7,7 +7,7 @@ export function TechIcon({ name, className = "w-16 h-16" }: { name: string; clas
     "React Native": "https://cdn.simpleicons.org/react/61DAFB",
     "Next.js": "https://cdn.simpleicons.org/nextdotjs/000000",
     iOS: "https://cdn.simpleicons.org/apple/000000",
-    Node.js: "https://cdn.simpleicons.org/nodedotjs/339933",
+    "Node.js": "https://cdn.simpleicons.org/nodedotjs/339933",
     Flink: "https://cdn.simpleicons.org/apache/E33531",
   };
 
