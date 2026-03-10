@@ -56,7 +56,7 @@ metrics:
     description: 便利蜂终端APP长期在线指标
 
 experiences:
-  - title: 商家服务大前端总监
+  - title: 瓜子二手车 - 商家服务大前端总监
     period: 2023.08 — 至今
     company: 瓜子二手车
     details:
@@ -69,7 +69,7 @@ experiences:
       - 团队 30 余人、5 个小组，成功推动客户端团队转型全栈及 AI Agent 开发
       - 研发范式演进：2025 Q1 实现 100% AI 编程覆盖，定义“标准化 AI 编程范式”及 Harness Engineering 模式
 
-  - title: 人工智能技术研究部 - 数字化业务负责人
+  - title: 便利蜂 - 人工智能技术研究部 - 数字化业务负责人
     period: 2021.05 — 2023.06
     company: 便利蜂
     details:
@@ -80,7 +80,7 @@ experiences:
       - 干预闭环：通过视频/通话/巡查实现 OODA 闭环，头部干预项成本降低 80%
       - 技术栈：Flink 实时流计算、MySql/Hbase/Clickhouse 混合存储、React+Scratch 可视化引擎
 
-  - title: 门店产品研发部 - 技术负责人
+  - title: 便利蜂 - 门店产品研发部 - 技术负责人
     period: 2017.05 — 2021.04
     company: 便利蜂
     details:
@@ -90,7 +90,7 @@ experiences:
       - 弱网方案：设计含离线支付、QUIC、设备间通信的弱断网方案（获相关专利）
       - 底层生态：构建 IoT 通道、自动分批分发、故障推理自检等框架，上线速度由月级提至周级
 
-  - title: 金融事业部 - 大前端负责人
+  - title: 去哪儿网 - 金融事业部 - 大前端负责人
     period: 2015.01 — 2017.04
     company: 去哪儿网
     details:
@@ -98,14 +98,14 @@ experiences:
       - 配置驱动：主导配置驱动式开发，实现新产品/营销活动上线无需开发介入
       - 模块化体系：支持单模块性能监控与热发布，实现故障隔离
 
-  - title: 酒店事业部 - 前端负责人
+  - title: 去哪儿网 - 酒店事业部 - 前端负责人
     period: 2012.02 — 2014.12
     company: 去哪儿网
     details:
       - 带领 15 人团队，搭建去哪儿首套前端性能监控框架及酒店团队 UI 组件库
       - 业界率先探索 RN 技术，在酒店点评编辑器中成功落地
 
-  - title: 联合创始人
+  - title: 揣着网 - 联合创始人
     period: 2011.05 — 2012.01
     company: 揣着网
     details:
