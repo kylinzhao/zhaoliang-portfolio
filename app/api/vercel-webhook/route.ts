@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// 通知配置（在环境变量中配置，三选一即可）
-const FEISHU_WEBHOOK_URL = process.env.FEISHU_WEBHOOK_URL;
+// 通知配置（在环境变量中配置，按优先级使用）
+const FEISHU_APP_ID = process.env.FEISHU_APP_ID;           // 飞书开放平台 App ID
+const FEISHU_APP_SECRET = process.env.FEISHU_APP_SECRET;   // 飞书开放平台 App Secret
+const FEISHU_USER_ID = process.env.FEISHU_USER_ID;         // 您的飞书 User ID
+const FEISHU_WEBHOOK_URL = process.env.FEISHU_WEBHOOK_URL; // 飞书群机器人 Webhook（可选）
 const SERVERCHAN_SENDKEY = process.env.SERVERCHAN_SENDKEY; // Server酱
 const EMAIL_TO = process.env.EMAIL_TO; // 邮件通知
 
@@ -32,8 +35,10 @@ export async function POST(request: NextRequest) {
 
     // 只在部署完成时发送通知
     if (deployment.state === "READY") {
-      // 按优先级发送通知（飞书 > Server酱 > 邮件）
-      if (FEISHU_WEBHOOK_URL) {
+      // 按优先级发送通知（飞书个人消息 > 飞书群机器人 > Server酱 > 邮件）
+      if (FEISHU_APP_ID && FEISHU_APP_SECRET && FEISHU_USER_ID) {
+        await sendFeishuPersonalNotification(deployment);
+      } else if (FEISHU_WEBHOOK_URL) {
         await sendFeishuNotification(deployment);
       } else if (SERVERCHAN_SENDKEY) {
         await sendServerChanNotification(deployment);
@@ -123,6 +128,110 @@ async function sendFeishuNotification(deployment: VercelDeployment) {
 
   const data = await response.json();
   return data;
+}
+
+// 飞书个人消息通知（通过飞书开放平台 API）
+async function sendFeishuPersonalNotification(deployment: VercelDeployment) {
+  if (!FEISHU_APP_ID || !FEISHU_APP_SECRET || !FEISHU_USER_ID) {
+    console.warn("Feishu personal notification not fully configured");
+    return;
+  }
+
+  try {
+    // 1. 获取 tenant_access_token
+    const tokenResponse = await fetch("https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        app_id: FEISHU_APP_ID,
+        app_secret: FEISHU_APP_SECRET,
+      }),
+    });
+
+    const tokenData = await tokenResponse.json();
+    if (tokenData.code !== 0) {
+      throw new Error(`Failed to get access token: ${tokenData.msg}`);
+    }
+
+    const accessToken = tokenData.tenant_access_token;
+
+    // 2. 构建消息内容
+    const projectName = deployment.name;
+    const stateText = deployment.state === "READY" ? "✅ 部署成功" : "❌ 部署失败";
+    const timestamp = new Date(deployment.created).toLocaleString("zh-CN", {
+      timeZone: "Asia/Shanghai",
+    });
+
+    const message = {
+      msg_type: "interactive",
+      card: {
+        header: {
+          title: {
+            tag: "plain_text",
+            content: "🚀 Vercel 部署通知",
+          },
+          template: "green",
+        },
+        elements: [
+          {
+            tag: "div",
+            text: {
+              tag: "lark_md",
+              content: `**项目**: ${projectName}\n**状态**: ${stateText}\n**时间**: ${timestamp}\n**访问**: [点击打开](${deployment.url})`,
+            },
+          },
+          {
+            tag: "action",
+            actions: [
+              {
+                tag: "button",
+                text: {
+                  tag: "plain_text",
+                  content: "查看部署",
+                },
+                type: "default",
+                url: deployment.url,
+              },
+              {
+                tag: "button",
+                text: {
+                  tag: "plain_text",
+                  content: "Vercel 控制台",
+                },
+                type: "primary",
+                url: `https://vercel.com/dashboard`,
+              },
+            ],
+          },
+        ],
+      },
+    };
+
+    // 3. 发送个人消息
+    const response = await fetch(`https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=open_id`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({
+        receive_id: FEISHU_USER_ID,
+        msg_type: "interactive",
+        content: JSON.stringify(message.card),
+      }),
+    });
+
+    const data = await response.json();
+    if (data.code !== 0) {
+      throw new Error(`Failed to send message: ${data.msg}`);
+    }
+
+    console.log("Feishu personal notification sent successfully");
+    return data;
+  } catch (error) {
+    console.error("Feishu personal notification error:", error);
+    throw error;
+  }
 }
 
 // Server酱通知（推送到微信）
