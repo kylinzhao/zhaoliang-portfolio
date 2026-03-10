@@ -1,9 +1,13 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const results = {
+  const results: {
+    timestamp: string;
+    checks: any[];
+    success?: boolean;
+  } = {
     timestamp: new Date().toISOString(),
-    checks: [] as any[],
+    checks: [],
   };
 
   // 检查环境变量
