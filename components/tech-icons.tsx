@@ -3,17 +3,12 @@ import React from "react";
 export function TechIcon({ name, className = "w-16 h-16" }: { name: string; className?: string }) {
   // 使用 Simple Icons (simpleicons.org) 的官方 logo
   const iconUrls: Record<string, string> = {
-    React: "https://cdn.simpleicons.org/react/61DAFB",
+    JavaScript: "https://cdn.simpleicons.org/javascript/F7DF1E",
     "React Native": "https://cdn.simpleicons.org/react/61DAFB",
     "Next.js": "https://cdn.simpleicons.org/nextdotjs/000000",
-    "Node.js": "https://cdn.simpleicons.org/nodedotjs/339933",
-    TypeScript: "https://cdn.simpleicons.org/typescript/3178C6",
-    "Tailwind CSS": "https://cdn.simpleicons.org/tailwindcss/06B6D4",
-    Tableau: "https://cdn.simpleicons.org/tableau/E96627",
-    // 添加 Flink 图标
+    iOS: "https://cdn.simpleicons.org/apple/000000",
+    Node.js: "https://cdn.simpleicons.org/nodedotjs/339933",
     Flink: "https://cdn.simpleicons.org/apache/E33531",
-    // 添加 Android 图标
-    Android: "https://cdn.simpleicons.org/android/3DDC84",
   };
 
   // 对于没有官方 logo 的概念性技能，使用通用图标
@@ -26,63 +21,17 @@ export function TechIcon({ name, className = "w-16 h-16" }: { name: string; clas
         <path d="M18 8l2 2" strokeLinecap="round"/>
       </svg>
     ),
-    "IoT / Android": (
+    IoT: (
       <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth="2">
         <rect x="4" y="4" width="16" height="16" rx="2" strokeLinecap="round" strokeLinejoin="round"/>
         <circle cx="12" cy="12" r="3" strokeLinecap="round" strokeLinejoin="round"/>
         <path d="M12 2v2M12 20v2M2 12h2M20 12h2" strokeLinecap="round"/>
       </svg>
     ),
-    Storage: (
-      <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth="2">
-        <path d="M21 7c0 1.66-4 3-9 3s-9-1.34-9-3M21 7c0-1.66-4-3-9-3s-9 1.34-9 3M21 17c0 1.66-4 3-9 3s-9-1.34-9-3M21 17v-4M3 17v-4M3 7v10M21 7v10" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
     Networking: (
       <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth="2">
         <circle cx="12" cy="12" r="3" strokeLinecap="round" strokeLinejoin="round"/>
         <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24" strokeLinecap="round"/>
-      </svg>
-    ),
-    "数据分析": (
-      <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth="2">
-        <path d="M3 3v18h18" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M18 17V9M13 17V5M8 17v-3" strokeLinecap="round"/>
-      </svg>
-    ),
-    "6Sigma": (
-      <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="9"/>
-        <path d="M12 12L16 8M12 12L8 16" strokeLinecap="round"/>
-        <circle cx="12" cy="12" r="2" fill="currentColor"/>
-      </svg>
-    ),
-    SEO: (
-      <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth="2">
-        <circle cx="11" cy="11" r="8"/>
-        <path d="M21 21l-4.35-4.35M11 8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" strokeLinecap="round"/>
-      </svg>
-    ),
-    SSR: (
-      <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth="2">
-        <path d="M12 2L2 7l10 5 10-5-10-5z" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M2 17l10 5 10-5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M2 12l10 5 10-5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
-    Dify: (
-      <svg viewBox="0 0 24 24" fill="none" className={className}>
-        <circle cx="12" cy="8" r="4" fill="#155EEF"/>
-        <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="#155EEF" strokeWidth="2" strokeLinecap="round"/>
-        <circle cx="18" cy="6" r="2" fill="#155EEF" opacity="0.6"/>
-      </svg>
-    ),
-    Agent: (
-      <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth="2">
-        <path d="M12 2a5 5 0 0 0-5 5v2a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5z" strokeLinecap="round"/>
-        <path d="M12 14c-4 0-7 2-7 5v1h14v-1c0-3-3-5-7-5z" strokeLinecap="round"/>
-        <circle cx="16" cy="6" r="2" fill="currentColor" opacity="0.5"/>
-        <path d="M18 8l2 2" strokeLinecap="round"/>
       </svg>
     ),
   };

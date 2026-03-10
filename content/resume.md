@@ -119,6 +119,11 @@ experiences:
       - 在花旗银行和凯捷咨询公司负责日常需求基础开发
 
 techStack:
+
+  - name: JavaScript
+    icon: 📱
+    description: 前端开发
+
   - name: React Native
     icon: 📱
     description: 公司级跨端框架专家
@@ -131,17 +136,17 @@ techStack:
     icon: ▲
     description: SSR / SEO 体系建设
 
-  - name: Flink
-    icon: 🌊
-    description: 实时流计算规则引擎
-
-  - name: IoT / Android
+  - name: IoT
     icon: 🔌
     description: 终端架构与底层 ROM 优化
 
-  - name: Storage
-    icon: 💾
-    description: Clickhouse / Hbase / MySQL
+  - name: iOS
+    icon: 🔌
+    description: iOS & Android 终端架构
+
+  - name: Flink
+    icon: 🌊
+    description: 实时流计算规则引擎
 
   - name: Networking
     icon: 🌐
