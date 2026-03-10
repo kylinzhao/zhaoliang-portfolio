@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/section-wrapper";
+import { TechIcon } from "@/components/tech-icons";
 import type { TechStack } from "@/types/resume";
 
 const cardVariants = {
@@ -43,7 +44,9 @@ export function TechStackClient({ techStack }: TechStackClientProps) {
               className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all duration-200 flex flex-col items-center justify-center text-center"
             >
               {/* Icon */}
-              <div className="text-5xl mb-4">{tech.icon}</div>
+              <div className="mb-4 text-primary">
+                <TechIcon name={tech.name} />
+              </div>
 
               {/* Name */}
               <h3 className="text-xl font-bold mb-2">{tech.name}</h3>
