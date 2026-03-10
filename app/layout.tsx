@@ -59,14 +59,14 @@ export async function generateMetadata(): Promise<Metadata> {
       creator: "@zhaoliang",
     },
 
-    // Canonical URL
+    // Canonical URL & Language Alternates
     alternates: {
       canonical: siteUrl,
-      // 为未来的英文版本预留
-      // languages: {
-      //   'en': 'https://zhaoliang.space/en',
-      //   'zh': siteUrl,
-      // },
+      languages: {
+        'en': 'https://zhaoliang.space/en',
+        'zh': siteUrl,
+        'x-default': siteUrl,
+      },
     },
 
     // Robots
@@ -91,7 +91,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
     // Verification
     verification: {
-      // google: "your-google-verification-code", // 未来添加
+      google: "7Lez3KSV0uZxDwvgtJvGuLQH2QNrgU0TkU_dm4cW5I4",
       // yandex: "your-yandex-verification-code",
     },
   };

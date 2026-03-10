@@ -1,8 +1,12 @@
 import { getResumeData } from "@/lib/resume";
 
-export async function SchemaOrg() {
-  const resume = await getResumeData();
+export async function SchemaOrg({ locale = 'zh' }: { locale?: string }) {
+  const resume = await getResumeData(locale);
   const baseUrl = "https://zhaoliang.space";
+
+  const sectionTitle = locale === 'en' ? "About Me" : "个人简介";
+  const aboutMatch = resume.content.match(new RegExp(`## ${sectionTitle}\\n\\n([\\s\\S]+?)(?=\\n##|$)`));
+  const description = aboutMatch ? aboutMatch[1].trim() : "";
 
   // Person Schema
   const personSchema = {
@@ -17,22 +21,22 @@ export async function SchemaOrg() {
       addressLocality: resume.frontmatter.location,
       addressCountry: "CN",
     },
-    url: baseUrl,
+    url: locale === 'en' ? `${baseUrl}/en` : baseUrl,
     sameAs: [
       // 未来可以添加社交媒体链接
       // "https://linkedin.com/in/yourprofile",
       // "https://github.com/yourusername",
     ],
     knowsAbout: resume.frontmatter.skills,
-    description: resume.content.match(/## 个人简介\n\n([\s\S]+?)(?=\n##|$)/)?.[1].trim(),
+    description,
   };
 
   // WebSite Schema
   const webSiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: `${resume.frontmatter.name}的个人网站`,
-    url: baseUrl,
+    name: locale === 'en' ? `${resume.frontmatter.name}'s Website` : `${resume.frontmatter.name}的个人网站`,
+    url: locale === 'en' ? `${baseUrl}/en` : baseUrl,
     description: personSchema.description,
     author: {
       "@type": "Person",
@@ -42,10 +46,10 @@ export async function SchemaOrg() {
       "@type": "Person",
       name: resume.frontmatter.name,
     },
-    inLanguage: "zh-CN",
+    inLanguage: locale === 'en' ? "en-US" : "zh-CN",
     potentialAction: {
       "@type": "SearchAction",
-      target: `${baseUrl}/?q={search_term_string}`,
+      target: `${locale === 'en' ? baseUrl + '/en' : baseUrl}/?q={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
   };

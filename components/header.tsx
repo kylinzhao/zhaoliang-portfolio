@@ -1,14 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Moon, Sun, Menu, X, Languages } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
+import { usePathname } from "next/navigation";
 
 export function Header() {
   const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
@@ -28,6 +30,15 @@ export function Header() {
     { name: "Skills", id: "skills" },
     { name: "Contact", id: "contact" },
   ];
+
+  const isEnglish = pathname?.startsWith("/en");
+  const toggleLanguage = () => {
+    if (isEnglish) {
+      window.location.href = "/";
+    } else {
+      window.location.href = "/en";
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -61,22 +72,34 @@ export function Header() {
             ))}
           </div>
 
-          {/* Theme Toggle & Mobile Menu */}
+          {/* Theme Toggle, Language & Mobile Menu */}
           <div className="flex items-center space-x-4">
             {mounted && (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="h-9 w-9"
-              >
-                {theme === "dark" ? (
-                  <Sun className="h-4 w-4" />
-                ) : (
-                  <Moon className="h-4 w-4" />
-                )}
-                <span className="sr-only">Toggle theme</span>
-              </Button>
+              <>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={toggleLanguage}
+                  className="h-9 w-9"
+                  title={isEnglish ? "切换到中文" : "Switch to English"}
+                >
+                  <Languages className="h-4 w-4" />
+                  <span className="sr-only">Toggle language</span>
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className="h-9 w-9"
+                >
+                  {theme === "dark" ? (
+                    <Sun className="h-4 w-4" />
+                  ) : (
+                    <Moon className="h-4 w-4" />
+                  )}
+                  <span className="sr-only">Toggle theme</span>
+                </Button>
+              </>
             )}
 
             {/* Mobile menu button */}
@@ -106,6 +129,14 @@ export function Header() {
                 {link.name}
               </button>
             ))}
+            {mounted && (
+              <button
+                onClick={toggleLanguage}
+                className="block w-full text-left px-4 py-2 text-sm font-medium hover:bg-muted rounded-md transition-colors"
+              >
+                {isEnglish ? "🇨🇳 中文" : "🇺🇸 English"}
+              </button>
+            )}
           </div>
         )}
       </nav>

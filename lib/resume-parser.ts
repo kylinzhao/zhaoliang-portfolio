@@ -62,25 +62,33 @@ const ResumeFrontmatterSchema: z.ZodType<ResumeFrontmatter> = z.object({
 });
 
 /**
- * Resume file path
+ * Get resume file path based on locale
+ * @param locale - Locale code ('zh' or 'en')
+ * @returns Resume file path
  */
-const RESUME_FILE_PATH = path.join(process.cwd(), "content", "resume.md");
+function getResumeFilePath(locale: string = 'zh'): string {
+  const fileName = locale === 'en' ? 'resume-en.md' : 'resume.md';
+  return path.join(process.cwd(), "content", fileName);
+}
 
 /**
  * Parse resume file from filesystem
+ * @param locale - Locale code ('zh' or 'en')
  * @returns Parsed resume data
  * @throws Error if file reading fails
  */
-function parseResumeFile(): { data: any; content: string } {
+function parseResumeFile(locale: string = 'zh'): { data: any; content: string } {
+  const filePath = getResumeFilePath(locale);
+
   try {
-    const fileContents = fs.readFileSync(RESUME_FILE_PATH, "utf-8");
+    const fileContents = fs.readFileSync(filePath, "utf-8");
     const { data, content } = matter(fileContents);
     return { data, content };
   } catch (error) {
     if (error instanceof Error) {
       if (error.message.includes("no such file")) {
         throw new Error(
-          `简历文件不存在: ${RESUME_FILE_PATH}\n请确保 content/resume.md 文件存在`
+          `简历文件不存在: ${filePath}\n请确保文件存在`
         );
       }
       throw new Error(`读取简历文件失败: ${error.message}`);
@@ -115,10 +123,11 @@ function validateResumeData(data: any): ResumeFrontmatter {
 /**
  * Get resume data asynchronously
  * This is the recommended function for Next.js Server Components
+ * @param locale - Locale code ('zh' or 'en'), defaults to 'zh'
  * @returns Parsed resume data with validated frontmatter
  */
-export async function getResumeData(): Promise<ParsedResume> {
-  const { data, content } = parseResumeFile();
+export async function getResumeData(locale: string = 'zh'): Promise<ParsedResume> {
+  const { data, content } = parseResumeFile(locale);
   const frontmatter = validateResumeData(data);
 
   return {
@@ -130,10 +139,11 @@ export async function getResumeData(): Promise<ParsedResume> {
 /**
  * Get resume data synchronously
  * Use this when you need synchronous data access
+ * @param locale - Locale code ('zh' or 'en'), defaults to 'zh'
  * @returns Parsed resume data with validated frontmatter
  */
-export function getResumeDataSync(): ParsedResume {
-  const { data, content } = parseResumeFile();
+export function getResumeDataSync(locale: string = 'zh'): ParsedResume {
+  const { data, content } = parseResumeFile(locale);
   const frontmatter = validateResumeData(data);
 
   return {
