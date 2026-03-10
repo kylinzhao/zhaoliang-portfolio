@@ -19,22 +19,42 @@ interface VercelDeployment {
 
 export async function POST(request: NextRequest) {
   try {
-    // 验证请求来自 Vercel（可选，推荐在生产环境启用）
-    const vercelSignature = request.headers.get("x-vercel-signature");
-    if (!vercelSignature) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
+    // 记录接收到的请求（用于调试）
+    console.log("Received webhook request");
 
     // 解析 Vercel webhook 数据
     const payload = await request.json();
-    const { deployment } = payload as { deployment: VercelDeployment };
+    console.log("Webhook payload:", JSON.stringify(payload, null, 2));
 
-    if (!deployment) {
-      return NextResponse.json({ error: "Invalid payload" }, { status: 400 });
+    // Vercel Webhook 的 payload 格式
+    // { event: "deployment.success", payload: { deployment: {...} } }
+    let deployment: VercelDeployment | null = null;
+
+    if (payload.deployment) {
+      // 直接格式
+      deployment = payload.deployment;
+    } else if (payload.payload?.deployment) {
+      // 嵌套格式
+      deployment = payload.payload.deployment;
+    } else if (payload.name && payload.state) {
+      // Vercel 部署对象本身
+      deployment = payload as VercelDeployment;
     }
 
+    if (!deployment) {
+      console.log("No deployment found in payload");
+      return NextResponse.json(
+        { success: true, message: "Received but no deployment data" },
+        { status: 200 }
+      );
+    }
+
+    console.log("Deployment state:", deployment.state);
+
     // 只在部署完成时发送通知
-    if (deployment.state === "READY") {
+    if (deployment.state === "READY" || deployment.state === "SUCCESS") {
+      console.log("Sending notification for deployment:", deployment.id);
+
       // 按优先级发送通知（飞书个人消息 > 飞书群机器人 > Server酱 > 邮件）
       if (FEISHU_APP_ID && FEISHU_APP_SECRET) {
         await sendFeishuPersonalNotification(deployment);
@@ -52,7 +72,10 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Webhook error:", error);
-    return NextResponse.json({ error: "Internal error" }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: String(error) },
+      { status: 500 }
+    );
   }
 }
 
