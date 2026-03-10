@@ -33,36 +33,38 @@ export function ExperienceClient({ experiences }: ExperienceClientProps) {
         </h2>
 
         {/* Company Header */}
-        {companies.map((company) => {
-          const companyExperiences = experiences.filter((exp) => exp.company === company);
-          const periods = companyExperiences.map((exp) => exp.period);
-          const startYear = periods[0]?.split(" — ")[0];
-          const endYear = periods[periods.length - 1]?.split(" — ")[1];
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 mb-12">
+          {companies.map((company) => {
+            const companyExperiences = experiences.filter((exp) => exp.company === company);
+            const periods = companyExperiences.map((exp) => exp.period);
+            const startYear = periods[0]?.split(" — ")[0];
+            const endYear = periods[periods.length - 1]?.split(" — ")[1];
 
-          return (
-            <div key={company} className="mb-12 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4 overflow-hidden bg-white">
-                {companyExperiences[0]?.logo ? (
-                  <img
-                    src={companyExperiences[0].logo}
-                    alt={`${company} logo`}
-                    className="w-12 h-12 object-contain"
-                    onError={(e) => {
-                      // Logo 加载失败时回退到默认图标
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      const fallback = target.nextElementSibling as HTMLElement;
-                      if (fallback) fallback.style.display = 'block';
-                    }}
-                  />
-                ) : null}
-                <span className="text-3xl" style={{ display: companyExperiences[0]?.logo ? 'none' : 'block' }}>🏢</span>
+            return (
+              <div key={company} className="text-center">
+                <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-primary/10 mb-2 overflow-hidden bg-white mx-auto">
+                  {companyExperiences[0]?.logo ? (
+                    <img
+                      src={companyExperiences[0].logo}
+                      alt={`${company} logo`}
+                      className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                      onError={(e) => {
+                        // Logo 加载失败时回退到默认图标
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const fallback = target.nextElementSibling as HTMLElement;
+                        if (fallback) fallback.style.display = 'block';
+                      }}
+                    />
+                  ) : null}
+                  <span className="text-2xl sm:text-3xl" style={{ display: companyExperiences[0]?.logo ? 'none' : 'block' }}>🏢</span>
+                </div>
+                <h3 className="text-sm sm:text-base font-semibold truncate px-1">{company}</h3>
+                <p className="text-xs text-muted-foreground truncate px-1">{startYear} — {endYear}</p>
               </div>
-              <h3 className="text-xl font-semibold">{company}</h3>
-              <p className="text-muted-foreground">{startYear} — {endYear}</p>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
 
         {/* Experience Timeline */}
         <div className="space-y-8">
