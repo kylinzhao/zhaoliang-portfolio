@@ -117,6 +117,34 @@ techStack:
   - name: Tailwind CSS
     icon: 🎨
     description: 工程化
+
+  - name: 数据分析
+    icon: 📊
+    description: 数据驱动决策
+
+  - name: Tableau
+    icon: 📈
+    description: 可视化分析
+
+  - name: 6Sigma
+    icon: 🎯
+    description: 流程优化
+
+  - name: SEO
+    icon: 🔍
+    description: 搜索引擎优化
+
+  - name: SSR
+    icon: ⚡
+    description: 服务端渲染
+
+  - name: Dify
+    icon: 🤖
+    description: AI应用平台
+
+  - name: Agent
+    icon: 🧠
+    description: AI智能体
 ---
 
 ## 个人简介
