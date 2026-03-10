@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 // 通知配置（在环境变量中配置，按优先级使用）
 const FEISHU_APP_ID = process.env.FEISHU_APP_ID;           // 飞书开放平台 App ID
 const FEISHU_APP_SECRET = process.env.FEISHU_APP_SECRET;   // 飞书开放平台 App Secret
-const FEISHU_USER_ID = process.env.FEISHU_USER_ID;         // 您的飞书 User ID
+const FEISHU_USER_ID = process.env.FEISHU_USER_ID;         // 可选：您的飞书 User ID（不填会自动获取）
 const FEISHU_WEBHOOK_URL = process.env.FEISHU_WEBHOOK_URL; // 飞书群机器人 Webhook（可选）
 const SERVERCHAN_SENDKEY = process.env.SERVERCHAN_SENDKEY; // Server酱
 const EMAIL_TO = process.env.EMAIL_TO; // 邮件通知
@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
     // 只在部署完成时发送通知
     if (deployment.state === "READY") {
       // 按优先级发送通知（飞书个人消息 > 飞书群机器人 > Server酱 > 邮件）
-      if (FEISHU_APP_ID && FEISHU_APP_SECRET && FEISHU_USER_ID) {
+      if (FEISHU_APP_ID && FEISHU_APP_SECRET) {
         await sendFeishuPersonalNotification(deployment);
       } else if (FEISHU_WEBHOOK_URL) {
         await sendFeishuNotification(deployment);
@@ -132,7 +132,7 @@ async function sendFeishuNotification(deployment: VercelDeployment) {
 
 // 飞书个人消息通知（通过飞书开放平台 API）
 async function sendFeishuPersonalNotification(deployment: VercelDeployment) {
-  if (!FEISHU_APP_ID || !FEISHU_APP_SECRET || !FEISHU_USER_ID) {
+  if (!FEISHU_APP_ID || !FEISHU_APP_SECRET) {
     console.warn("Feishu personal notification not fully configured");
     return;
   }
@@ -155,7 +155,26 @@ async function sendFeishuPersonalNotification(deployment: VercelDeployment) {
 
     const accessToken = tokenData.tenant_access_token;
 
-    // 2. 构建消息内容
+    // 2. 如果没有配置 User ID，自动获取当前用户的 open_id
+    let userId = FEISHU_USER_ID;
+    if (!userId) {
+      const userResponse = await fetch("https://open.feishu.cn/open-apis/contact/v3/users/me", {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      const userData = await userResponse.json();
+      if (userData.code !== 0) {
+        throw new Error(`Failed to get user info: ${userData.msg}`);
+      }
+
+      userId = userData.data.user.open_id;
+      console.log("Auto-detected User ID:", userId);
+    }
+
+    // 3. 构建消息内容
     const projectName = deployment.name;
     const stateText = deployment.state === "READY" ? "✅ 部署成功" : "❌ 部署失败";
     const timestamp = new Date(deployment.created).toLocaleString("zh-CN", {
@@ -207,7 +226,7 @@ async function sendFeishuPersonalNotification(deployment: VercelDeployment) {
       },
     };
 
-    // 3. 发送个人消息
+    // 4. 发送个人消息
     const response = await fetch(`https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=open_id`, {
       method: "POST",
       headers: {
@@ -215,7 +234,7 @@ async function sendFeishuPersonalNotification(deployment: VercelDeployment) {
         Authorization: `Bearer ${accessToken}`,
       },
       body: JSON.stringify({
-        receive_id: FEISHU_USER_ID,
+        receive_id: userId,
         msg_type: "interactive",
         content: JSON.stringify(message.card),
       }),
