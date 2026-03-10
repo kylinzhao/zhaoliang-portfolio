@@ -38,7 +38,7 @@ experiences:
   - title: 商家服务大前端总监
     period: 2023.01 — 至今
     company: 瓜子二手车
-    logo: https://img2.quke360.com/com Logo/guazi/logo.png
+    logo: https://asset.brandfetch.io/id-bMuWBkK4yI/icon-512.png
     details:
       - 27人团队管理 | 5条业务线
       - GRN 2.0架构 | SSR/SEO体系建设
@@ -49,7 +49,7 @@ experiences:
   - title: 人工智能技术研究部 - 数字化业务负责人
     period: 2021.05 — 2023.06
     company: 便利蜂
-    logo: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Bianlifeng_logo.svg/200px-Bianlifeng_logo.svg.png
+    logo: https://asset.brandfetch.io/id-6X2MCUhFeE/icon-512.png
     details:
       - 业务建模：梳理200余实体及3000余项属性，实现超50%业务数据线上化
       - 实时规则引擎：利用Flink实时流计算，异常捕获开发速度从2周缩短至2天
@@ -59,7 +59,7 @@ experiences:
   - title: 门店产品研发部 - 技术负责人
     period: 2017.05 — 2021.04
     company: 便利蜂
-    logo: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Bianlifeng_logo.svg/200px-Bianlifeng_logo.svg.png
+    logo: https://asset.brandfetch.io/id-6X2MCUhFeE/icon-512.png
     details:
       - 跨端融合：主导收银机、点餐机、PDA等20余类终端APP设计
       - 融合React Native、Android、Linux及单片机技术
@@ -70,7 +70,7 @@ experiences:
   - title: 金融事业部 - 大前端负责人
     period: 2015.01 — 2017.04
     company: 去哪儿网
-    logo: https://pic3.58cdn.com.cn/nowater/fm/v2/n_v2b9f1c8e2f8c8e4f8e8f8e8f8e8f8e8e.png
+    logo: https://asset.brandfetch.io/id-8nWcE7vXLm/icon-512.png
     details:
       - 从0到1组建10人团队，推动React及React Native在部门落地
       - 配置驱动：主导落地配置驱动式开发，实现新产品及营销活动上线无需开发介入
@@ -79,7 +79,7 @@ experiences:
   - title: 酒店事业部 - 前端负责人
     period: 2012.02 — 2014.12
     company: 去哪儿网
-    logo: https://pic3.58cdn.com.cn/nowater/fm/v2/n_v2b9f1c8e2f8c8e4f8e8f8e8f8e8f8e8e.png
+    logo: https://asset.brandfetch.io/id-8nWcE7vXLm/icon-512.png
     details:
       - 搭建去哪儿首套前端性能监控框架
       - 搭建并落地酒店团队首套UI组件库
@@ -88,7 +88,7 @@ experiences:
   - title: 联合创始人
     period: 2011.05 — 2012.01
     company: 揣着网
-    logo: https://img.icons8.com/color/96/idea.png
+    logo: https://asset.brandfetch.io/id-zK2QXBdU7b/icon-512.png
     details:
       - 负责技术与产品设计
       - 自研APP iOS下载量曾位居同类前10
