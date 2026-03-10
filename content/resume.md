@@ -128,7 +128,7 @@ techStack:
     icon: 📱
     description: 公司级跨端框架专家
 
-  - name: AI / LLM
+  - name: OpenAI
     icon: 🤖
     description: Dify / Agent / Prompt Engineering
 
@@ -140,7 +140,7 @@ techStack:
     icon: 🔌
     description: 终端架构与底层 ROM 优化
 
-  - name: iOS
+  - name: iOS & Android
     icon: 🔌
     description: iOS & Android 终端架构
 

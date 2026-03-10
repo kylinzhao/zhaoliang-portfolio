@@ -6,20 +6,26 @@ export function TechIcon({ name, className = "w-16 h-16" }: { name: string; clas
     JavaScript: "https://cdn.simpleicons.org/javascript/F7DF1E",
     "React Native": "https://cdn.simpleicons.org/react/61DAFB",
     "Next.js": "https://cdn.simpleicons.org/nextdotjs/000000",
-    iOS: "https://cdn.simpleicons.org/apple/000000",
     "Node.js": "https://cdn.simpleicons.org/nodedotjs/339933",
     Flink: "https://cdn.simpleicons.org/apache/E33531",
+    OpenAI: "https://cdn.simpleicons.org/openai/000000",
   };
 
-  // 对于没有官方 logo 的概念性技能，使用通用图标
+  // 对于需要特殊处理的图标（多 logo 组合或自定义）
   const genericIcons: Record<string, React.ReactElement> = {
-    "AI / LLM": (
-      <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth="2">
-        <path d="M12 2a5 5 0 0 0-5 5v2a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5z" strokeLinecap="round"/>
-        <path d="M12 14c-4 0-7 2-7 5v1h14v-1c0-3-3-5-7-5z" strokeLinecap="round"/>
-        <circle cx="16" cy="6" r="2" fill="currentColor" opacity="0.5"/>
-        <path d="M18 8l2 2" strokeLinecap="round"/>
-      </svg>
+    "iOS & Android": (
+      <div className={`flex items-center justify-center gap-1 ${className}`}>
+        <img
+          src="https://cdn.simpleicons.org/apple/000000"
+          alt="Apple"
+          className="w-1/2 h-auto"
+        />
+        <img
+          src="https://cdn.simpleicons.org/android/3DDC84"
+          alt="Android"
+          className="w-1/2 h-auto"
+        />
+      </div>
     ),
     IoT: (
       <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth="2">
@@ -42,5 +48,5 @@ export function TechIcon({ name, className = "w-16 h-16" }: { name: string; clas
     return <img src={url} alt={name} className={className} />;
   }
 
-  return genericIcons[name] || genericIcons["AI / LLM"];
+  return genericIcons[name] || genericIcons["iOS & Android"];
 }
