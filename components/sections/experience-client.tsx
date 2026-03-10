@@ -41,8 +41,22 @@ export function ExperienceClient({ experiences }: ExperienceClientProps) {
 
           return (
             <div key={company} className="mb-12 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                <span className="text-3xl">🏢</span>
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4 overflow-hidden bg-white">
+                {companyExperiences[0]?.logo ? (
+                  <img
+                    src={companyExperiences[0].logo}
+                    alt={`${company} logo`}
+                    className="w-12 h-12 object-contain"
+                    onError={(e) => {
+                      // Logo 加载失败时回退到默认图标
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const fallback = target.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = 'block';
+                    }}
+                  />
+                ) : null}
+                <span className="text-3xl" style={{ display: companyExperiences[0]?.logo ? 'none' : 'block' }}>🏢</span>
               </div>
               <h3 className="text-xl font-semibold">{company}</h3>
               <p className="text-muted-foreground">{startYear} — {endYear}</p>

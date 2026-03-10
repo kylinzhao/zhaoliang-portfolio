@@ -15,6 +15,7 @@ export interface Experience {
   title: string;
   period: string;
   company: string;
+  logo?: string; // 公司 logo URL 或路径
   details: string[];
 }
 
