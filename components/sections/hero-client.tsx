@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, Mail } from "lucide-react";
+import { Download, Mail, Phone, Eye } from "lucide-react";
 import type { ResumeFrontmatter } from "@/types/resume";
+import { useState } from "react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -32,6 +33,29 @@ interface HeroClientProps {
 }
 
 export function HeroClient({ resume }: HeroClientProps) {
+  const [showPhone, setShowPhone] = useState(false);
+
+  // 简单的混淆编码（Base64 + 反转）
+  const encodePhone = (phone: string) => {
+    return btoa(phone.split('').reverse().join(''));
+  };
+
+  const decodePhone = (encoded: string) => {
+    return atob(encoded).split('').reverse().join('');
+  };
+
+  // 编码后的手机号
+  const encodedPhone = resume.phone ? encodePhone(resume.phone) : '';
+
+  // 部分显示手机号
+  const maskPhone = (phone: string) => {
+    const parts = phone.match(/(\d{3})(\d{4})(\d{4})/);
+    if (parts) {
+      return `${parts[1]} ${'*'.repeat(4)} ${parts[3]}`;
+    }
+    return phone.replace(/(\d{3})\d{4}(\d{4})/, '$1 **** $2');
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center pt-16">
       <motion.div
@@ -85,6 +109,13 @@ export function HeroClient({ resume }: HeroClientProps) {
             <Mail className="mr-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
             发送邮件
           </a>
+          <button
+            onClick={() => setShowPhone(!showPhone)}
+            className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8 group"
+          >
+            <Phone className="mr-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+            {showPhone ? resume.phone : `获取电话`}
+          </button>
         </motion.div>
       </motion.div>
     </section>
