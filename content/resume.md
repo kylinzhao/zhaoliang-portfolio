@@ -6,17 +6,23 @@ phone: "18610384127"
 location: 北京
 
 skills:
-  - 团队管理 (30-50人规模)
   - 大前端架构 (RN/Hybrid/SSR/低代码)
-  - AI Agent & 大模型落地 (Dify/Harness Engineering)
+  - 团队管理 (30-50人规模)
   - 数字化业务建模 & OODA 平台建设
   - IoT 终端架构 & 弱网高可用方案
   - 成本控制 & 研发效能数字化
+  - AI Agent & 大模型落地 (Dify/Harness Engineering)
 
 metrics:
+
   - icon: 🤖
+    value: "48.88%"
+    label: AI客服项目收益
+    description: 瓜子车商 IM 承接 48.88% 网销任务，出价率提升 2.62%
+
+  - icon: ⚖️ 
     value: "ROI 9.1"
-    label: AI项目收益
+    label: AI风控项目收益
     description: 瓜子风控大模型项目投资回报比
 
   - icon: 📉
