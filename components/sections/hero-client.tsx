@@ -61,9 +61,7 @@ export function HeroClient({ resume }: HeroClientProps) {
           variants={itemVariants}
           className="text-lg sm:text-xl text-muted-foreground mb-12 space-y-2"
         >
-          {resume.skills.slice(0, 3).map((skill, index) => (
-            <p key={index}>{resume.skills.slice(0, 3).join(" · ")}</p>
-          ))}
+          <p>{resume.skills.slice(0, 3).join(" · ")}</p>
           <p>跨端架构 · SSR/SEO · 工程化</p>
         </motion.div>
 
