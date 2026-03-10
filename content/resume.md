@@ -1,17 +1,17 @@
 ---
 name: 赵梁
-title: 大前端技术负责人 · 27人团队管理
+title: 大前端技术负责人 · 13 年团队管理经验
 email: mr.zhao.liang@qq.com
 phone: "18610384127"
 location: 北京
 
 skills:
-  - React
-  - React Native
-  - Next.js
-  - Node.js
-  - TypeScript
-  - Tailwind CSS
+  - 团队管理
+  - 大前端开发
+  - 成本控制
+  - 出海
+  - 低代码
+  - Dify/Agent
 
 metrics:
   - icon: 📉
@@ -25,7 +25,7 @@ metrics:
     description: 审核速度提升
 
   - icon: 👥
-    value: "27人"
+    value: "30-50人"
     label: 团队规模
     description: 商家服务大前端
 

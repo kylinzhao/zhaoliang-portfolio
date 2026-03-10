@@ -31,7 +31,7 @@ export function TechStackClient({ techStack }: TechStackClientProps) {
         </h2>
 
         {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
           {techStack.map((tech, index) => (
             <motion.div
               key={tech.name}
@@ -41,7 +41,7 @@ export function TechStackClient({ techStack }: TechStackClientProps) {
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
               whileHover={{ scale: 1.02 }}
-              className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all duration-200 flex flex-col items-center justify-center text-center"
+              className="bg-card border border-border rounded-lg p-4 sm:p-6 hover:border-primary/50 transition-all duration-200 flex flex-col items-center justify-center text-center"
             >
               {/* Icon */}
               <div className="mb-4 text-primary">
