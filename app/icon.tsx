@@ -19,26 +19,17 @@ export default function Icon() {
         opacity="0.5"
       />
 
-      {/* Z Letter - Bold geometric */}
-      <path
-        d="M 140 140 L 140 180 L 220 180 L 120 280 L 120 320 L 240 320 L 240 280 L 160 280 L 260 180 L 260 140 Z"
-        fill="white"
-        stroke="white"
-        strokeWidth="6"
-        strokeLinejoin="round"
-      />
+      {/* ZL Logo - scaled from 200x200 to 512x512 */}
+      <g transform="translate(102.4, 102.4) scale(1.536)" stroke="white" stroke-width="12" fill="none" stroke-linecap="round">
+        <path d="M0,8 L88,8" />
+        <path d="M88,8 L48,56" />
+        <path d="M40,68 L0,120" />
+        <path d="M0,120 L88,120" />
 
-      {/* L Letter - Bold geometric */}
-      <path
-        d="M 280 140 L 280 300 L 360 300 L 360 340 L 240 340 L 240 140 Z"
-        fill="white"
-        stroke="white"
-        strokeWidth="6"
-        strokeLinejoin="round"
-      />
-
-      {/* Accent dot for modern touch */}
-      <circle cx="390" cy="160" r="12" fill="#3b82f6" />
+        <path d="M120,8 L120,56" />
+        <path d="M120,68 L120,120" />
+        <path d="M120,120 L72,120" />
+      </g>
 
       {/* Definitions */}
       <defs>

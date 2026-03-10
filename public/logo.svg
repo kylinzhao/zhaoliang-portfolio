@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  width="200px"
+  height="200px"
+  viewBox="0 0 200 200"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+    <g id="Logo-Minimal" transform="translate(40.000000, 40.000000)" stroke="currentColor" stroke-width="12" fill="none">
+
+        <path d="M0,8 L88,8" id="Z-Line-1" stroke-linecap="round"></path>
+        <path d="M88,8 L48,56" id="Z-Line-2-Part-1" stroke-linecap="round"></path>
+        <path d="M40,68 L0,120" id="Z-Line-2-Part-2" stroke-linecap="round"></path>
+        <path d="M0,120 L88,120" id="Z-Line-3" stroke-linecap="round"></path>
+
+        <path d="M120,8 L120,56" id="L-Line-1-Part-1" stroke-linecap="round"></path>
+        <path d="M120,68 L120,120" id="L-Line-1-Part-2" stroke-linecap="round"></path>
+        <path d="M120,120 L72,120" id="L-Line-2" stroke-linecap="round"></path>
+    </g>
+</svg>

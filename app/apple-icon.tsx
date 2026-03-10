@@ -19,26 +19,17 @@ export default function AppleIcon() {
         opacity="0.5"
       />
 
-      {/* Z Letter */}
-      <path
-        d="M 50 50 L 50 65 L 85 65 L 35 115 L 35 130 L 95 130 L 95 115 L 60 115 L 110 65 L 110 50 Z"
-        fill="white"
-        stroke="white"
-        strokeWidth="3"
-        strokeLinejoin="round"
-      />
+      {/* ZL Logo - scaled from 200x200 to 180x180 */}
+      <g transform="translate(36, 36) scale(0.54)" stroke="white" stroke-width="12" fill="none" stroke-linecap="round">
+        <path d="M0,8 L88,8" />
+        <path d="M88,8 L48,56" />
+        <path d="M40,68 L0,120" />
+        <path d="M0,120 L88,120" />
 
-      {/* L Letter */}
-      <path
-        d="M 120 50 L 120 110 L 150 110 L 150 125 L 105 125 L 105 50 Z"
-        fill="white"
-        stroke="white"
-        strokeWidth="3"
-        strokeLinejoin="round"
-      />
-
-      {/* Accent dot */}
-      <circle cx="160" cy="60" r="5" fill="#3b82f6" />
+        <path d="M120,8 L120,56" />
+        <path d="M120,68 L120,120" />
+        <path d="M120,120 L72,120" />
+      </g>
 
       <defs>
         <radialGradient id="glow" cx="50%" cy="50%" r="50%">
