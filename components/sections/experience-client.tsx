@@ -22,6 +22,13 @@ interface ExperienceClientProps {
 }
 
 export function ExperienceClient({ experiences }: ExperienceClientProps) {
+  // 辅助函数：将日期字符串转换为可比较的数值
+  const parseDate = (dateStr: string): number => {
+    if (dateStr === "至今") return 9999.99; // 至今设为最大值
+    const [year, month] = dateStr.split(".").map(Number);
+    return year + month / 100;
+  };
+
   // Get unique companies and their overall date range
   const companies = Array.from(new Set(experiences.map((exp) => exp.company)));
 
@@ -33,12 +40,29 @@ export function ExperienceClient({ experiences }: ExperienceClientProps) {
         </h2>
 
         {/* Company Header */}
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4 mb-12">
           {companies.map((company) => {
             const companyExperiences = experiences.filter((exp) => exp.company === company);
-            const periods = companyExperiences.map((exp) => exp.period);
-            const startYear = periods[0]?.split(" — ")[0];
-            const endYear = periods[periods.length - 1]?.split(" — ")[1];
+
+            // 找出所有开始时间，选择最早的
+            const startDates = companyExperiences.map((exp) => {
+              const startDate = exp.period.split(" — ")[0];
+              return { date: startDate, value: parseDate(startDate) };
+            });
+            const earliest = startDates.reduce((min, current) =>
+              current.value < min.value ? current : min
+            );
+            const startYear = earliest.date;
+
+            // 找出所有结束时间，选择最晚的
+            const endDates = companyExperiences.map((exp) => {
+              const endDate = exp.period.split(" — ")[1];
+              return { date: endDate, value: parseDate(endDate) };
+            });
+            const latest = endDates.reduce((max, current) =>
+              current.value > max.value ? current : max
+            );
+            const endYear = latest.date;
 
             return (
               <div key={company} className="text-center">

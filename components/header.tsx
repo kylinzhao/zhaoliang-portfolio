@@ -37,9 +37,14 @@ export function Header() {
           <div className="flex-shrink-0">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="text-xl font-bold hover:text-muted-foreground transition-colors"
+              className="flex items-center gap-3 hover:opacity-80 transition-opacity"
             >
-              ZHAO LIANG
+              <img
+                src="/icon.png"
+                alt="ZL Logo"
+                className="w-10 h-10 rounded-lg"
+              />
+              <span className="text-xl font-bold">ZHAO LIANG</span>
             </button>
           </div>
 
