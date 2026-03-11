@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/app/providers";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { getResumeData } from "@/lib/resume";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -105,6 +106,7 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" suppressHydrationWarning>
       <body className="font-sans antialiased">
+        <GoogleAnalytics gaId="G-CLJ47S8F90" />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
