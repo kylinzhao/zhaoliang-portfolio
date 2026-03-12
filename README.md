@@ -72,5 +72,4 @@ portfolio/
 
 **赵梁** - 大前端技术负责人
 
-- 邮箱：zhaoliang.js@gmail.com
-- 电话：18610384127
+- 邮箱：mr.zhao.liang@qq.com
