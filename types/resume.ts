@@ -37,6 +37,11 @@ export interface Contact {
 }
 
 /**
+ * 个人项目数据
+ */
+export type { Project } from './project';
+
+/**
  * 简历 Front Matter (YAML 元数据)
  */
 export interface ResumeFrontmatter {
@@ -73,6 +78,9 @@ export interface ResumeFrontmatter {
     linkedin?: string;
     twitter?: string;
   };
+
+  /** 个人项目 */
+  projects?: Project[];
 }
 
 /**

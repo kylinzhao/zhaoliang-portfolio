@@ -6,6 +6,7 @@ import type {
   Metric,
   Experience,
   TechStack,
+  Project,
   ResumeFrontmatter,
   ParsedResume,
 } from "@/types/resume";
@@ -40,6 +41,19 @@ const TechStackSchema: z.ZodType<TechStack> = z.object({
 });
 
 /**
+ * Zod Schema for Project validation
+ */
+const ProjectSchema: z.ZodType<Project> = z.object({
+  name: z.string(),
+  icon: z.string(),
+  description: z.string(),
+  linkType: z.enum(['internal', 'external']),
+  url: z.string(),
+  status: z.enum(['active', 'wip', 'planned']),
+  tags: z.array(z.string()).optional(),
+});
+
+/**
  * Zod Schema for ResumeFrontmatter validation
  */
 const ResumeFrontmatterSchema: z.ZodType<ResumeFrontmatter> = z.object({
@@ -59,6 +73,7 @@ const ResumeFrontmatterSchema: z.ZodType<ResumeFrontmatter> = z.object({
       twitter: z.string().optional(),
     })
     .optional(),
+  projects: z.array(ProjectSchema).optional(),
 });
 
 /**

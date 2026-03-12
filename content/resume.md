@@ -155,6 +155,23 @@ techStack:
   - name: Node.js
     icon: 🟢
     description: 全栈开发与远程运维工具
+
+projects:
+  - name: "小学数学互动教学"
+    icon: "🧮"
+    description: "3D 可视化学习平台，涵盖小学 1-6 年级数学和科学核心知识"
+    linkType: "external"
+    url: "https://math.zhaoliang.space"
+    status: "active"
+    tags: ["Three.js", "React", "Vite"]
+
+  - name: "个人摄影作品集"
+    icon: "📷"
+    description: "记录生活中的美好瞬间"
+    linkType: "internal"
+    url: "/photos"
+    status: "wip"
+    tags: ["Next.js", "Tailwind CSS"]
 ---
 
 ## 个人简介
