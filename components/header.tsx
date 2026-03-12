@@ -5,6 +5,7 @@ import { Moon, Sun, Menu, X, Languages } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
+import { ThemeSwitcher } from "@/components/theme/theme-switcher";
 
 export function Header() {
   const [mounted, setMounted] = useState(false);
@@ -72,10 +73,11 @@ export function Header() {
             ))}
           </div>
 
-          {/* Theme Toggle, Language & Mobile Menu */}
-          <div className="flex items-center space-x-4">
+          {/* Theme Toggle, Language, Theme Switcher & Mobile Menu */}
+          <div className="flex items-center space-x-2">
             {mounted && (
               <>
+                <ThemeSwitcher />
                 <Button
                   variant="ghost"
                   size="icon"
@@ -90,7 +92,7 @@ export function Header() {
                   variant="ghost"
                   size="icon"
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="h-9 w-9"
+                  className="h-9 w-9 hidden sm:flex"
                 >
                   {theme === "dark" ? (
                     <Sun className="h-4 w-4" />

@@ -105,6 +105,58 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const STORAGE_KEY = "user-preferences";
+                  const stored = localStorage.getItem(STORAGE_KEY);
+                  let preferences = {};
+
+                  if (stored) {
+                    try {
+                      preferences = JSON.parse(stored);
+                    } catch (e) {
+                      console.error("Failed to parse preferences:", e);
+                    }
+                  }
+
+                  const themeType = preferences.themeType || "original";
+                  const colorMode = preferences.colorMode || "light";
+
+                  const root = document.documentElement;
+
+                  // 设置主题类型
+                  if (themeType !== "original") {
+                    root.setAttribute("data-theme", themeType);
+                  }
+
+                  // 设置颜色模式
+                  root.setAttribute("data-color-mode", colorMode);
+
+                  // 设置 dark class（为了向后兼容）
+                  if (colorMode === "dark") {
+                    root.classList.add("dark");
+                  }
+                } catch (e) {
+                  console.error("Failed to apply theme:", e);
+                }
+              })();
+            `,
+          }}
+        />
+        <noscript>
+          <style>{`
+            /* 默认主题的兜底样式（当 JavaScript 被禁用时） */
+            html {
+              --background: #ffffff;
+              --foreground: #0a0a0a;
+            }
+          `}</style>
+        </noscript>
+      </head>
       <body className="font-sans antialiased">
         <GoogleAnalytics gaId="G-CLJ47S8F90" />
         <ThemeProvider

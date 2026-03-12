@@ -18,9 +18,9 @@
 
 ### 新增功能
 
-- `resume-data-source`: 创建标准化的简历数据源文件，支持 YAML Front Matter + Markdown 格式，包含个人信息、技能、经历、联系方式等完整简历内容
-- `resume-parser`: 实现简历数据解析器，将 Markdown 文件转换为结构化的 TypeScript 对象，支持类型验证和错误处理
-- `content-driven-components`: 重构所有内容组件为数据驱动模式，组件从解析后的数据读取内容，自动适配样式
+- `resume-data-source`: 创建标准化的简历数据源文件，MUST 支持 YAML Front Matter + Markdown 格式，MUST 包含个人信息、技能、经历、联系方式等完整简历内容
+- `resume-parser`: MUST 实现简历数据解析器，将 Markdown 文件转换为结构化的 TypeScript 对象，MUST 支持类型验证和错误处理
+- `content-driven-components`: MUST 重构所有内容组件为数据驱动模式，组件 MUST 从解析后的数据读取内容，MUST 自动适配样式
 
 ### 修改功能
 

@@ -3,6 +3,7 @@
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant warm (&:is([data-theme="warm"] *));
 
 @theme inline {
   --color-background: var(--background);
@@ -116,6 +117,146 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* Cinematic Warm Theme - Light Mode */
+[data-theme="warm"] {
+  --background: oklch(0.98 0.01 60);
+  --foreground: oklch(0.15 0.02 50);
+  --card: oklch(0.99 0.005 60);
+  --card-foreground: oklch(0.15 0.02 50);
+  --popover: oklch(0.99 0.005 60);
+  --popover-foreground: oklch(0.15 0.02 50);
+  --primary: oklch(0.60 0.15 40);
+  --primary-foreground: oklch(0.98 0.01 60);
+  --secondary: oklch(0.95 0.01 60);
+  --secondary-foreground: oklch(0.15 0.02 50);
+  --muted: oklch(0.95 0.01 60);
+  --muted-foreground: oklch(0.50 0.02 50);
+  --accent: oklch(0.95 0.01 60);
+  --accent-foreground: oklch(0.15 0.02 50);
+  --destructive: oklch(0.58 0.22 27);
+  --border: oklch(0.90 0.02 60);
+  --input: oklch(0.90 0.02 60);
+  --ring: oklch(0.60 0.15 40);
+  --chart-1: oklch(0.60 0.15 40);
+  --chart-2: oklch(0.65 0.14 45);
+  --chart-3: oklch(0.70 0.13 50);
+  --chart-4: oklch(0.75 0.12 55);
+  --chart-5: oklch(0.80 0.11 60);
+  --sidebar: oklch(0.99 0.005 60);
+  --sidebar-foreground: oklch(0.15 0.02 50);
+  --sidebar-primary: oklch(0.60 0.15 40);
+  --sidebar-primary-foreground: oklch(0.98 0.01 60);
+  --sidebar-accent: oklch(0.95 0.01 60);
+  --sidebar-accent-foreground: oklch(0.15 0.02 50);
+  --sidebar-border: oklch(0.90 0.02 60);
+  --sidebar-ring: oklch(0.60 0.15 40);
+}
+
+/* Cinematic Warm Theme - Dark Mode */
+[data-theme="warm"][data-color-mode="dark"] {
+  --background: oklch(0.18 0.02 50);
+  --foreground: oklch(0.95 0.01 60);
+  --card: oklch(0.20 0.02 50);
+  --card-foreground: oklch(0.95 0.01 60);
+  --popover: oklch(0.20 0.02 50);
+  --popover-foreground: oklch(0.95 0.01 60);
+  --primary: oklch(0.75 0.12 60);
+  --primary-foreground: oklch(0.18 0.02 50);
+  --secondary: oklch(0.30 0.02 50);
+  --secondary-foreground: oklch(0.95 0.01 60);
+  --muted: oklch(0.30 0.02 50);
+  --muted-foreground: oklch(0.70 0.01 60);
+  --accent: oklch(0.35 0.02 50);
+  --accent-foreground: oklch(0.95 0.01 60);
+  --destructive: oklch(0.70 0.19 25);
+  --border: oklch(0.25 0.03 50);
+  --input: oklch(0.25 0.03 50);
+  --ring: oklch(0.75 0.12 60);
+  --chart-1: oklch(0.75 0.12 60);
+  --chart-2: oklch(0.70 0.13 55);
+  --chart-3: oklch(0.65 0.14 50);
+  --chart-4: oklch(0.60 0.15 45);
+  --chart-5: oklch(0.55 0.16 40);
+  --sidebar: oklch(0.20 0.02 50);
+  --sidebar-foreground: oklch(0.95 0.01 60);
+  --sidebar-primary: oklch(0.75 0.12 60);
+  --sidebar-primary-foreground: oklch(0.18 0.02 50);
+  --sidebar-accent: oklch(0.30 0.02 50);
+  --sidebar-accent-foreground: oklch(0.95 0.01 60);
+  --sidebar-border: oklch(0.25 0.03 50);
+  --sidebar-ring: oklch(0.75 0.12 60);
+}
+
+/* Noir Monochromatic Theme - Light Mode */
+[data-theme="noir"] {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.05 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.05 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.05 0 0);
+  --primary: oklch(0 0 0);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0 0);
+  --secondary-foreground: oklch(0.05 0 0);
+  --muted: oklch(0.95 0 0);
+  --muted-foreground: oklch(0.40 0 0);
+  --accent: oklch(0.95 0 0);
+  --accent-foreground: oklch(0.05 0 0);
+  --destructive: oklch(0.58 0.22 27);
+  --border: oklch(0.10 0 0);
+  --input: oklch(0.10 0 0);
+  --ring: oklch(0.30 0 0);
+  --chart-1: oklch(0.20 0 0);
+  --chart-2: oklch(0.30 0 0);
+  --chart-3: oklch(0.40 0 0);
+  --chart-4: oklch(0.50 0 0);
+  --chart-5: oklch(0.60 0 0);
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.05 0 0);
+  --sidebar-primary: oklch(0 0 0);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.95 0 0);
+  --sidebar-accent-foreground: oklch(0.05 0 0);
+  --sidebar-border: oklch(0.10 0 0);
+  --sidebar-ring: oklch(0.30 0 0);
+}
+
+/* Noir Monochromatic Theme - Dark Mode */
+[data-theme="noir"][data-color-mode="dark"] {
+  --background: oklch(0.10 0 0);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.12 0 0);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.12 0 0);
+  --popover-foreground: oklch(0.95 0 0);
+  --primary: oklch(1 0 0);
+  --primary-foreground: oklch(0.10 0 0);
+  --secondary: oklch(0.20 0 0);
+  --secondary-foreground: oklch(0.95 0 0);
+  --muted: oklch(0.20 0 0);
+  --muted-foreground: oklch(0.60 0 0);
+  --accent: oklch(0.25 0 0);
+  --accent-foreground: oklch(0.95 0 0);
+  --destructive: oklch(0.70 0.19 25);
+  --border: oklch(0.30 0 0);
+  --input: oklch(0.30 0 0);
+  --ring: oklch(0.50 0 0);
+  --chart-1: oklch(0.80 0 0);
+  --chart-2: oklch(0.70 0 0);
+  --chart-3: oklch(0.60 0 0);
+  --chart-4: oklch(0.50 0 0);
+  --chart-5: oklch(0.40 0 0);
+  --sidebar: oklch(0.12 0 0);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(1 0 0);
+  --sidebar-primary-foreground: oklch(0.10 0 0);
+  --sidebar-accent: oklch(0.20 0 0);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.30 0 0);
+  --sidebar-ring: oklch(0.50 0 0);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -147,5 +288,449 @@
   }
   html {
     scroll-behavior: auto;
+  }
+}
+
+/* HSL 后备方案：不支持 OKLCH 的浏览器 */
+@supports not (color: oklch(0 0 0)) {
+  :root {
+    --background: #ffffff;
+    --foreground: #0a0a0a;
+    --card: #ffffff;
+    --card-foreground: #0a0a0a;
+    --popover: #ffffff;
+    --popover-foreground: #0a0a0a;
+    --primary: #171717;
+    --primary-foreground: #fafafa;
+    --secondary: #f5f5f5;
+    --secondary-foreground: #171717;
+    --muted: #f5f5f5;
+    --muted-foreground: #737373;
+    --accent: #f5f5f5;
+    --accent-foreground: #171717;
+    --destructive: #ef4444;
+    --border: #e5e5e5;
+    --input: #e5e5e5;
+    --ring: #d4d4d4;
+  }
+
+  .dark {
+    --background: #0a0a0a;
+    --foreground: #fafafa;
+    --card: #171717;
+    --card-foreground: #fafafa;
+    --popover: #171717;
+    --popover-foreground: #fafafa;
+    --primary: #e4e4e7;
+    --primary-foreground: #171717;
+    --secondary: #262626;
+    --secondary-foreground: #fafafa;
+    --muted: #262626;
+    --muted-foreground: #a3a3a3;
+    --accent: #262626;
+    --accent-foreground: #fafafa;
+    --destructive: #dc2626;
+    --border: #404040;
+    --input: #404040;
+    --ring: #737373;
+  }
+
+  [data-theme="warm"] {
+    --background: #fafaf8;
+    --foreground: #2c2416;
+    --card: #fbfbf9;
+    --card-foreground: #2c2416;
+    --primary: #8b4513;
+    --primary-foreground: #fafaf8;
+    --secondary: #f0ebe3;
+    --secondary-foreground: #2c2416;
+    --muted: #f0ebe3;
+    --muted-foreground: #6b5d4f;
+    --border: #e0d8cc;
+  }
+
+  [data-theme="warm"][data-color-mode="dark"] {
+    --background: #2c2416;
+    --foreground: #f5f0e8;
+    --card: #3a3224;
+    --card-foreground: #f5f0e8;
+    --primary: #d4a574;
+    --primary-foreground: #2c2416;
+    --secondary: #4a4234;
+    --secondary-foreground: #f5f0e8;
+    --muted: #4a4234;
+    --muted-foreground: #c4b8a8;
+    --border: #5a5244;
+  }
+
+  [data-theme="noir"] {
+    --background: #ffffff;
+    --foreground: #000000;
+    --card: #ffffff;
+    --card-foreground: #000000;
+    --primary: #000000;
+    --primary-foreground: #ffffff;
+    --secondary: #f5f5f5;
+    --secondary-foreground: #000000;
+    --border: #e5e5e5;
+  }
+
+  [data-theme="noir"][data-color-mode="dark"] {
+    --background: #0a0a0a;
+    --foreground: #f5f5f5;
+    --card: #171717;
+    --card-foreground: #f5f5f5;
+    --primary: #ffffff;
+    --primary-foreground: #0a0a0a;
+    --secondary: #262626;
+    --secondary-foreground: #f5f5f5;
+    --border: #404040;
+  }
+}
+
+/* ========================================
+   高级视觉效果：纹理系统
+   ======================================== */
+
+/* SVG Filters 定义（隐藏在 DOM 中） */
+.svg-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* 细沙岩纹理 - Cinematic Warm 主题 */
+[data-theme="warm"] .card,
+[data-theme="warm"] [data-slot="card"],
+[data-theme="warm"] .bento-item {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="warm"] .card::after,
+[data-theme="warm"] [data-slot="card"]::after,
+[data-theme="warm"] .bento-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
+/* 动态噪点纹理 - Noir Monochromatic 主题 */
+[data-theme="noir"] html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
+}
+
+/* 动态噪点动画 */
+@keyframes noise-shift {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-1px, -1px);
+  }
+  20% {
+    transform: translate(1px, 0px);
+  }
+  30% {
+    transform: translate(0px, 1px);
+  }
+  40% {
+    transform: translate(1px, -1px);
+  }
+  50% {
+    transform: translate(-1px, 1px);
+  }
+  60% {
+    transform: translate(0px, 0px);
+  }
+  70% {
+    transform: translate(1px, 1px);
+  }
+  80% {
+    transform: translate(-1px, 0px);
+  }
+  90% {
+    transform: translate(0px, -1px);
+  }
+}
+
+[data-theme="noir"] html::before {
+  animation: noise-shift 0.8s steps(10) infinite;
+}
+
+/* 禁用动画时的降级 */
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="noir"] html::before {
+    animation: none;
+  }
+}
+
+/* ========================================
+   高级视觉效果：阴影和光束系统
+   ======================================== */
+
+/* 摄影级多层阴影 - Cinematic Warm 主题 */
+[data-theme="warm"] .card,
+[data-theme="warm"] [data-slot="card"],
+[data-theme="warm"] .bento-item {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 4px 8px rgba(0, 0, 0, 0.03),
+    0 12px 24px rgba(0, 0, 0, 0.02);
+  transition: box-shadow 0.3s ease;
+}
+
+/* 悬停时增强阴影 */
+[data-theme="warm"] .card:hover,
+[data-theme="warm"] [data-slot="card"]:hover,
+[data-theme="warm"] .bento-item:hover {
+  box-shadow:
+    0 1.5px 3px rgba(0, 0, 0, 0.06),
+    0 6px 12px rgba(0, 0, 0, 0.036),
+    0 18px 36px rgba(0, 0, 0, 0.024);
+}
+
+/* 悬停光束高亮效果 - Cinematic Warm 主题 */
+[data-theme="warm"] .card,
+[data-theme="warm"] [data-slot="card"],
+[data-theme="warm"] .bento-item {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="warm"] .card::before,
+[data-theme="warm"] [data-slot="card"]::before,
+[data-theme="warm"] .bento-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(188, 108, 58, 0.1) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 200% 200%;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+[data-theme="warm"] .card:hover::before,
+[data-theme="warm"] [data-slot="card"]:hover::before,
+[data-theme="warm"] .bento-item:hover::before {
+  opacity: 1;
+  animation: beam-flow 1.5s ease-in-out;
+}
+
+@keyframes beam-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* ========================================
+   高级视觉效果：Spring 物理动画
+   ======================================== */
+
+/* Noir 主题的 Spring 动画参数 */
+[data-theme="noir"] {
+  --spring-stiffness: 300;
+  --spring-damping: 25;
+  --spring-mass: 1;
+}
+
+/* Bento Grid Spring 动画 - Noir 主题 */
+[data-theme="noir"] .bento-item {
+  animation-duration: 0.6s;
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Hero 标题动态字重过渡 - Noir 主题 */
+[data-theme="noir"] h1,
+[data-theme="noir"] .hero-title {
+  animation: hero-reveal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes hero-reveal {
+  0% {
+    font-weight: 100;
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    font-weight: 700;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Spring 动画优化 - 使用 GPU 加速 */
+[data-theme="noir"] .bento-item,
+[data-theme="noir"] .card,
+[data-theme="noir"] [data-slot="card"] {
+  will-change: transform, opacity;
+}
+
+/* 动画结束后移除 will-change */
+[data-theme="noir"] .bento-item:not(:hover),
+[data-theme="noir"] .card:not(:hover),
+[data-theme="noir"] [data-slot="card"]:not(:hover) {
+  will-change: auto;
+}
+
+/* 动态排版激活效果 */
+[data-theme="noir"] .animate-text {
+  display: inline-block;
+  animation: text-reveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes text-reveal {
+  0% {
+    font-weight: 100;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    font-weight: 700;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 禁用动画时的降级 */
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="noir"] .bento-item,
+  [data-theme="noir"] .card,
+  [data-theme="noir"] [data-slot="card"] {
+    animation: none;
+    will-change: auto;
+  }
+
+  [data-theme="noir"] h1,
+  [data-theme="noir"] .hero-title {
+    animation: none;
+  }
+
+  [data-theme="noir"] .animate-text {
+    animation: none;
+  }
+}
+
+/* ========================================
+   组件兼容性和性能优化
+   ======================================== */
+
+/* 确保所有组件使用 Design Tokens */
+.card,
+[data-slot="card"],
+.bento-item,
+.timeline-item,
+.navbar {
+  background-color: var(--card);
+  color: var(--card-foreground);
+  border-color: var(--border);
+}
+
+/* 时间轴组件使用 primary 颜色 */
+.timeline-item::before,
+.timeline-item::after {
+  background-color: var(--primary);
+}
+
+/* 导航栏更新 */
+.navbar {
+  background-color: var(--background);
+  border-color: var(--border);
+}
+
+/* 性能优化：GPU 加速 */
+.card,
+[data-slot="card"],
+.bento-item,
+.timeline-item {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* 性能优化：will-change 使用 */
+.card:hover,
+[data-slot="card"]:hover,
+.bento-item:hover {
+  will-change: transform, box-shadow;
+}
+
+/* 性能优化：低端设备降级 */
+@media (max-width: 768px) {
+  [data-theme="warm"] .card::after,
+  [data-theme="warm"] [data-slot="card"]::after,
+  [data-theme="warm"] .bento-item::after {
+    opacity: 0.02;
+  }
+
+  [data-theme="noir"] html::before {
+    opacity: 0.08;
+    animation-duration: 1.2s;
+  }
+}
+
+/* 性能优化：减少动画复杂度 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 所有动画使用 transform 和 opacity */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
