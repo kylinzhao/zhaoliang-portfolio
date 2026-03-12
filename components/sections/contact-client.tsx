@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Phone, Eye, EyeOff } from "lucide-react";
+import { Mail, Phone, Eye, EyeOff, Github } from "lucide-react";
 import { SectionWrapper } from "@/components/section-wrapper";
 import type { ResumeFrontmatter } from "@/types/resume";
 import { useState } from "react";
@@ -49,6 +49,13 @@ export function ContactClient({ resume }: ContactClientProps) {
       href: resume.phone ? `tel:${resume.phone}` : '#',
       isProtected: true,
     },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "项目源码",
+      href: "https://github.com/kylinzhao/zhaoliang-portfolio",
+      isProtected: false,
+    },
   ];
 
   return (
@@ -59,7 +66,7 @@ export function ContactClient({ resume }: ContactClientProps) {
         </h2>
 
         {/* Contact Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
           {contacts.map((contact) => {
             const Icon = contact.icon;
 
