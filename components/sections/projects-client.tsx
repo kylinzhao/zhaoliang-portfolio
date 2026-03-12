@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/section-wrapper";
 import { ExternalLink, ArrowRight } from "lucide-react";
-import type { Project } from "@/types/project";
+import type { Project } from "@/types/resume";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
