@@ -157,13 +157,69 @@ techStack:
     description: 全栈开发与远程运维工具
 
 projects:
-  - name: "创作实验室"
+  - name: "创作实验室总览"
     icon: "🎬"
-    description: "把每日视频任务、音乐改编和 GitHub Trending 做成统一的内容二级页面"
+    description: "把每日视频任务、音乐改编和 GitHub Trending 做成统一的公开内容归档页"
     linkType: "internal"
     url: "/creations"
     status: "active"
     tags: ["Next.js", "Content Ops", "AI Workflow"]
+
+  - name: "每日视频任务｜剧情实验室"
+    icon: "🌙"
+    description: "把《月球背面》这类连载视频任务拆成 logline、反转、4 段分镜与 ending hook"
+    linkType: "internal"
+    url: "/creations/video-storylab"
+    status: "active"
+    tags: ["Serial Video", "Story Design", "MiniMax"]
+
+  - name: "音乐改编｜经典老歌 Cover 档案"
+    icon: "🎵"
+    description: "沉淀 MMX 经典老歌改编方法、曲风策略与前 10 首 cover 方案"
+    linkType: "internal"
+    url: "/creations/music-adaptations"
+    status: "active"
+    tags: ["Music-2.6", "Prompt Design", "Content Pipeline"]
+
+  - name: "GitHub Trending｜每日 Top5 笔记"
+    icon: "📈"
+    description: "把每日 GitHub Trending 做成中文速读版，强调为什么值得看与适合拿来做什么"
+    linkType: "internal"
+    url: "/creations/github-trending-notes"
+    status: "active"
+    tags: ["Open Source", "Daily Brief", "Feishu"]
+
+  - name: "LLM Wiki Skill"
+    icon: "🧠"
+    description: "把零散文档沉淀成可查询、可增量维护的文件型 LLM Wiki 工作流"
+    linkType: "external"
+    url: "https://github.com/kylinzhao/llm-wiki"
+    status: "active"
+    tags: ["Hermes Skill", "Knowledge Base", "Codex"]
+
+  - name: "Symphony Elixir"
+    icon: "🎼"
+    description: "一个把 AI coding agent、Feishu/Lark 和 Linear 串起来的任务编排原型"
+    linkType: "external"
+    url: "https://github.com/kylinzhao/symphony-elixir"
+    status: "active"
+    tags: ["Elixir", "Agent Orchestration", "Linear"]
+
+  - name: "GitHub Trending 小红书卡片引擎"
+    icon: "🖼️"
+    description: "将 GitHub Trending Top5 自动整理为中文卡片，并投递到飞书的可复用技能仓库"
+    linkType: "external"
+    url: "https://github.com/kylinzhao/github-trending-xhs-linear-dark-cards"
+    status: "active"
+    tags: ["Hermes Skill", "Playwright", "Social Content"]
+
+  - name: "Codex 本地端口注册表"
+    icon: "🧰"
+    description: "给 AI 编码工作流补上开发前端口审计，减少多项目并行时的端口冲突"
+    linkType: "external"
+    url: "https://github.com/kylinzhao/codex-local-port-registry"
+    status: "active"
+    tags: ["Codex", "DX", "Local Dev"]
 
   - name: "小学数学互动教学"
     icon: "🧮"
