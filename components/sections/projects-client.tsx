@@ -48,7 +48,7 @@ export function ProjectsClient({ projects }: ProjectsClientProps) {
           工具集
         </h2>
         <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-          我的一些业余项目和个人作品
+          公开作品、自动化工作流与代表性开源项目
         </p>
 
         {/* Projects Grid */}
