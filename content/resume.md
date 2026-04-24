@@ -157,6 +157,14 @@ techStack:
     description: 全栈开发与远程运维工具
 
 projects:
+  - name: "创作实验室"
+    icon: "🎬"
+    description: "把每日视频任务、音乐改编和 GitHub Trending 做成统一的内容二级页面"
+    linkType: "internal"
+    url: "/creations"
+    status: "active"
+    tags: ["Next.js", "Content Ops", "AI Workflow"]
+
   - name: "小学数学互动教学"
     icon: "🧮"
     description: "3D 可视化学习平台，涵盖小学 1-6 年级数学和科学核心知识"
